@@ -6,6 +6,7 @@ import { CssBaseline } from "@material-ui/core";
 import HelmetWrapper from "./Layout/HelmetWrapper";
 import Main from "./Layout/Main";
 import Home from "./Pages/Home";
+import Skills from "./Pages/Skills";
 import DarkTheme from "../styles/dark-theme";
 import LightTheme from "../styles/light-theme";
 import { useSelector } from "react-redux";
@@ -42,7 +43,7 @@ export default function App() {
                 render={() => {
                   return (
                     <HelmetWrapper title={`${title} - Skills`} description={`Awesome skills ${title} has.`}>
-                      <></>
+                      <Skills />
                     </HelmetWrapper>
                   );
                 }}

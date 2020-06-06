@@ -55,8 +55,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Home() {
   const classes = useStyles();
   const classesBase = useStylesBase();
-  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
-  const whoImg = <img className={classes.whoImage} src={whoImage} alt="main" />;
+  const smAndDown: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const whoImg: JSX.Element = <img className={classes.whoImage} src={whoImage} alt="main" />;
 
   return (
     <Grid container className={classesBase.background}>

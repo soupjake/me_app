@@ -1,7 +1,7 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { call, put, takeLatest } from "redux-saga/effects";
 import { getLocalTheme } from "../../helpers/theme-helper";
-import { getThemeRequest, getThemeSuccess, getThemeFailure, setThemeRequest } from "../reducers/theme-reducer";
+import { getThemeRequest, getThemeSuccess, getThemeFailure, setThemeRequest } from "../reducers/theme-reducers";
 
 function* getThemeSaga() {
   try {

@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ThemeState } from "../../models/state";
+import StoreState from "../../models/state";
+
+interface ThemeState extends StoreState {
+  dark: boolean;
+}
 
 const themeSlice = createSlice({
   name: "theme",

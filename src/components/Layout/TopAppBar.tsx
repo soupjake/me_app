@@ -16,10 +16,10 @@ import LinkButton from "../Layout/LinkButton";
 import useStylesBase from "../../styles/styles-base";
 import { Typography } from "@material-ui/core";
 import { openUrl } from "../../helpers/text-helper";
-import { Media } from "../../models/media";
+import Media from "../../models/media";
 import { useSelector, useDispatch } from "react-redux";
 import { AppState } from "../../store/app-state";
-import { setThemeRequest } from "../../store/reducers/theme-reducer";
+import { setThemeRequest } from "../../store/reducers/theme-reducers";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
