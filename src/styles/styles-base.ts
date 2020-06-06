@@ -50,7 +50,8 @@ const useStylesBase = makeStyles((theme: Theme) =>
     },
     avatar: {
       height: 200,
-      width: 200
+      width: 200,
+      margin: "auto"
     },
     card: {
       display: "flex",

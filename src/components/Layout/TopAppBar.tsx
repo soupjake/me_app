@@ -46,11 +46,11 @@ export default function TopAppBar() {
   const medias: Media[] = [
     {
       url: "https://github.com/superjakegough",
-      icon: <GitHubLogo />
+      icon: <GitHubLogo color="primary" />
     },
     {
       url: "https://www.linkedin.com/in/jake-gough-9b128169/",
-      icon: <LinkedInLogo />
+      icon: <LinkedInLogo color="primary" />
     }
   ];
 
@@ -74,6 +74,8 @@ export default function TopAppBar() {
     </Grid>
   );
 
+  const themeIcon = dark ? <Brightess7Icon color="primary" /> : <Brightess3Icon color="primary" />;
+
   const topAppBar = smAndDown ? (
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>
@@ -90,7 +92,7 @@ export default function TopAppBar() {
                     {media.icon}
                   </MenuItem>
                 ))}
-                <MenuItem onClick={() => handleTheme()}>{dark ? "Set Light Theme" : "Set Dark Theme"}</MenuItem>
+                <MenuItem onClick={() => handleTheme()}>{themeIcon}</MenuItem>
               </Menu>
             </Grid>
           </Grid>
@@ -118,7 +120,7 @@ export default function TopAppBar() {
           <Grid item xs>
             <Grid container justify="flex-end">
               <IconButton color="primary" onClick={() => handleTheme()}>
-                {dark ? <Brightess7Icon /> : <Brightess3Icon />}
+                {themeIcon}
               </IconButton>
               {medias.map(media => (
                 <IconButton key={media.url} color="primary" onClick={() => openUrl(media.url)}>

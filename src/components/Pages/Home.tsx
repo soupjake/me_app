@@ -2,6 +2,7 @@ import React from "react";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -58,22 +59,22 @@ export default function Home() {
   const whoImg = <img className={classes.whoImage} src={whoImage} alt="main" />;
 
   return (
-    <div>
-      <Grid container direction="column" justify="center" className={classesBase.background}>
-        <img src={homeImage} className={classesBase.headerImage} alt="" />
-        <Typography variant={getHeaderSize(smAndDown)} align="right" className={classesBase.headerText}>
-          Jacob Gough
-        </Typography>
+    <Grid container className={classesBase.background}>
+      <img src={homeImage} className={classesBase.headerImage} alt="" />
+      <Typography variant={getHeaderSize(smAndDown)} align="right" className={classesBase.headerText}>
+        Jacob Gough
+      </Typography>
+      <Container maxWidth="lg">
         <Grid container justify="center" className={classesBase.contentContainer} spacing={2}>
-          <Grid item md={8} sm={10} xs={12}>
+          <Grid item xs={12}>
             <Typography variant={getSubheaderSize(smAndDown)}>Who I Am</Typography>
           </Grid>
           {smAndDown && (
-            <Grid container item sm={10} xs={12} justify="center">
+            <Grid container item xs={12} justify="center">
               {whoImg}
             </Grid>
           )}
-          <Grid item md={5} sm={10} xs={12}>
+          <Grid item xs={12} md={9}>
             <Typography variant="body1">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
               rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
@@ -91,7 +92,7 @@ export default function Home() {
               {whoImg}
             </Grid>
           )}
-          <Grid item md={8} sm={10} xs={12}>
+          <Grid item xs={12}>
             <Typography variant={getSubheaderSize(smAndDown)}>What I Do</Typography>
             <ExpansionPanel elevation={0} defaultExpanded={true} className={classes.expansionPanel}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -148,15 +149,25 @@ export default function Home() {
               </ExpansionPanelDetails>
             </ExpansionPanel>
           </Grid>
-          <Grid item sm={10} xs={12}>
+          <Grid item xs={12}>
             <Divider />
           </Grid>
-          <Grid container direction="column" item md={4} sm={10} xs={12} alignItems="center">
-            <Avatar className={classesBase.avatar} src={avatar} alt="avatar" />
-            <Typography variant="h6">Jacob Gough</Typography>
-            <Typography variant="h6">Awesome Software Developer</Typography>
+          <Grid container item xs={12} md={6} alignItems="center" spacing={2}>
+            <Grid item xs={12}>
+              <Avatar className={classesBase.avatar} src={avatar} alt="avatar" />
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="h6" align="center">
+                Jacob Gough
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="h6" align="center">
+                Awesome Software Developer
+              </Typography>
+            </Grid>
           </Grid>
-          <Grid item md={4} sm={10} xs={12}>
+          <Grid item xs={12} md={6}>
             <Grid container justify="center" alignItems="center" className={classesBase.fillHeight}>
               <List>
                 <ListItem>
@@ -181,7 +192,7 @@ export default function Home() {
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </div>
+      </Container>
+    </Grid>
   );
 }
