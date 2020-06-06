@@ -3,7 +3,12 @@ import { grey, green } from "@material-ui/core/colors";
 
 const secondary = fade(green.A700, 0.1);
 
-const LightTheme: Theme = createMuiTheme({
+const margin = {
+  marginTop: 8,
+  marginBottom: 8
+};
+
+const DarkTheme: Theme = createMuiTheme({
   palette: {
     primary: {
       main: green.A700
@@ -21,7 +26,14 @@ const LightTheme: Theme = createMuiTheme({
     type: "dark"
   },
   typography: {
-    fontFamily: "Public Sans, sans-serif"
+    fontFamily: "Public Sans, sans-serif",
+    h2: margin,
+    h4: margin,
+    h5: { ...margin, textAlign: "center" },
+    allVariants: {
+      lineHeight: 1.4,
+      letterSpacing: "0.0075em"
+    }
   },
   overrides: {
     MuiCssBaseline: {
@@ -43,4 +55,4 @@ const LightTheme: Theme = createMuiTheme({
   }
 });
 
-export default LightTheme;
+export default DarkTheme;

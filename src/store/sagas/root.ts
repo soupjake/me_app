@@ -1,6 +1,6 @@
 import { all, fork } from "redux-saga/effects";
-import { takeLatestTheme } from "./theme-sagas";
+import { getLatestTheme, setLatestTheme } from "./theme-sagas";
 
 export default function* root() {
-  yield all([fork(takeLatestTheme)]);
+  yield all([fork(getLatestTheme), fork(setLatestTheme)]);
 }

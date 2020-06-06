@@ -12,7 +12,7 @@ import "./App.css";
 const history = createBrowserHistory();
 
 export default function App() {
-  const title: string = "Jake Gough";
+  const title: string = "Jacob Gough";
 
   return (
     <ThemeProvider theme={DarkTheme}>
@@ -28,6 +28,28 @@ export default function App() {
                   return (
                     <HelmetWrapper title={`${title}`} description={`${title}`}>
                       <Home />
+                    </HelmetWrapper>
+                  );
+                }}
+              />
+              <Route
+                path="/skills"
+                exact
+                render={() => {
+                  return (
+                    <HelmetWrapper title={`${title} - Skills`} description={`Awesome skills ${title} has.`}>
+                      <></>
+                    </HelmetWrapper>
+                  );
+                }}
+              />
+              <Route
+                path="/timeline"
+                exact
+                render={() => {
+                  return (
+                    <HelmetWrapper title={`${title} - Timeline`} description={`Timeline of ${title}'s life.`}>
+                      <></>
                     </HelmetWrapper>
                   );
                 }}

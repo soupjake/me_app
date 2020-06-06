@@ -9,7 +9,10 @@ const useStylesBase = makeStyles((theme: Theme) =>
       height: "100vh"
     },
     boldText: {
-      fontWeight: 700
+      fontWeight: "bold"
+    },
+    textCenter: {
+      textAlign: "center"
     },
     contentContainer: {
       padding: theme.spacing(7),
@@ -31,12 +34,8 @@ const useStylesBase = makeStyles((theme: Theme) =>
       bottom: 0,
       right: 0,
       padding: theme.spacing(4),
-      fontSize: 56,
-      fontWeight: "bold",
-      textAlign: "right",
       [theme.breakpoints.down("md")]: {
-        padding: theme.spacing(2),
-        fontSize: 28
+        padding: theme.spacing(2)
       }
     },
     whoImage: {
@@ -48,29 +47,12 @@ const useStylesBase = makeStyles((theme: Theme) =>
         marginLeft: theme.spacing(2)
       }
     },
-    contentTitle: {
-      fontSize: "2.125rem",
-      color: theme.palette.primary.main,
-      fontWeight: 700,
-      lineHeight: 1.17,
-      letterSpacing: "0.00735em",
-      marginTop: 8,
-      marginBottom: 8,
-      [theme.breakpoints.down("md")]: {
-        fontSize: "1.5rem",
-        lineHeight: 1.33,
-        letterSpacing: 0,
-        textAlign: "center"
-      }
-    },
     fillHeight: {
       height: "100%"
     },
     avatar: {
       height: 200,
-      width: 200,
-      margin: "auto",
-      borderRadius: "50%"
+      width: 200
     },
     divider: {
       margin: `${theme.spacing(4)}px !important`

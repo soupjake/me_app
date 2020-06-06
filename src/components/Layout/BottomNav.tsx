@@ -4,8 +4,8 @@ import { createStyles, Theme, makeStyles, fade } from "@material-ui/core/styles"
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import HomeIcon from "@material-ui/icons/Home";
-import ImageIcon from "@material-ui/icons/Image";
-import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
+import KeyboardIcon from "@material-ui/icons/Keyboard";
+import TimelineIcon from "@material-ui/icons/Timeline";
 import { useLocation } from "react-router";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -38,13 +38,13 @@ export default function BottomNav() {
   return (
     <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
       <BottomNavigationAction label="Home" value="/" icon={<HomeIcon />} component={Link} to="/" />
-      <BottomNavigationAction label="Images" value="/images" icon={<ImageIcon />} component={Link} to="/images" />
+      <BottomNavigationAction label="Skills" value="/skills" icon={<KeyboardIcon />} component={Link} to="/skills" />
       <BottomNavigationAction
-        label="Videos"
-        value="/videos"
-        icon={<VideoLibraryIcon />}
+        label="Timeline"
+        value="/timeline"
+        icon={<TimelineIcon />}
         component={Link}
-        to="/videos"
+        to="/timeline"
       />
     </BottomNavigation>
   );

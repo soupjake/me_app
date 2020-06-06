@@ -9,12 +9,18 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import GitHubLogo from "@material-ui/icons/GitHub";
 import LinkedInLogo from "@material-ui/icons/LinkedIn";
+import Brightess7Icon from "@material-ui/icons/Brightness7";
+import Brightess3Icon from "@material-ui/icons/Brightness3";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import LinkButton from "../Layout/LinkButton";
 import useStylesBase from "../../styles/styles-base";
 import { Typography } from "@material-ui/core";
 import { openUrl } from "../../helpers/text-helper";
 import { Media } from "../../models/media";
+import { ThemeType } from "../../models/state";
+import { useSelector, useDispatch } from "react-redux";
+import { AppState } from "../../store/app-state";
+import { setThemeRequest } from "../../store/reducers/theme-reducer";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,7 +40,11 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function TopAppBar() {
   const classes = useStyles();
   const classesBase = useStylesBase();
+  const theme: ThemeType = useSelector((state: AppState) => state.theme.theme);
+  const themeDark: boolean = theme === "dark";
   const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(undefined);
+  const dispatch = useDispatch();
+  const smAndDown: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const medias: Media[] = [
     {
       url: "https://github.com/superjakegough",
@@ -54,16 +64,14 @@ export default function TopAppBar() {
     setAnchorEl(undefined);
   }
 
-  function handleSocialClick(url: string) {
-    window.open(url, "_blank");
+  function handleTheme() {
+    dispatch(setThemeRequest(themeDark ? "light" : "dark"));
   }
-
-  const smAndDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
   const name = (
     <Grid item xs>
       <Typography variant="h6" color="primary">
-        Jake Gough
+        Jacob Gough
       </Typography>
     </Grid>
   );
@@ -82,6 +90,7 @@ export default function TopAppBar() {
                 {medias.map(media => (
                   <MenuItem onClick={() => openUrl(media.url)}>{media.icon}</MenuItem>
                 ))}
+                <MenuItem onClick={() => handleTheme()}>{themeDark ? "Set Light Theme" : "Set Dark Theme"}</MenuItem>
               </Menu>
             </Grid>
           </Grid>
@@ -98,16 +107,19 @@ export default function TopAppBar() {
               <LinkButton className={classesBase.button} to="/">
                 Home
               </LinkButton>
-              <LinkButton className={classesBase.button} to="/images">
+              <LinkButton className={classesBase.button} to="/skills">
                 Skills
               </LinkButton>
-              <LinkButton className={classesBase.button} to="/videos">
+              <LinkButton className={classesBase.button} to="/timeline">
                 Timeline
               </LinkButton>
             </Grid>
           </Grid>
           <Grid item xs>
             <Grid container justify="flex-end">
+              <IconButton color="primary" onClick={() => handleTheme()}>
+                {themeDark ? <Brightess7Icon /> : <Brightess3Icon />}
+              </IconButton>
               {medias.map(media => (
                 <IconButton color="primary" onClick={() => openUrl(media.url)}>
                   {media.icon}
