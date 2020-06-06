@@ -17,7 +17,6 @@ import useStylesBase from "../../styles/styles-base";
 import { Typography } from "@material-ui/core";
 import { openUrl } from "../../helpers/text-helper";
 import { Media } from "../../models/media";
-import { ThemeType } from "../../models/state";
 import { useSelector, useDispatch } from "react-redux";
 import { AppState } from "../../store/app-state";
 import { setThemeRequest } from "../../store/reducers/theme-reducer";
@@ -40,8 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function TopAppBar() {
   const classes = useStyles();
   const classesBase = useStylesBase();
-  const theme: ThemeType = useSelector((state: AppState) => state.theme.theme);
-  const themeDark: boolean = theme === "dark";
+  const dark: boolean = useSelector((state: AppState) => state.theme.dark);
   const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(undefined);
   const dispatch = useDispatch();
   const smAndDown: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
@@ -65,7 +63,7 @@ export default function TopAppBar() {
   }
 
   function handleTheme() {
-    dispatch(setThemeRequest(themeDark ? "light" : "dark"));
+    dispatch(setThemeRequest(!dark));
   }
 
   const name = (
@@ -88,9 +86,11 @@ export default function TopAppBar() {
               </IconButton>
               <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
                 {medias.map(media => (
-                  <MenuItem onClick={() => openUrl(media.url)}>{media.icon}</MenuItem>
+                  <MenuItem key={media.url} onClick={() => openUrl(media.url)}>
+                    {media.icon}
+                  </MenuItem>
                 ))}
-                <MenuItem onClick={() => handleTheme()}>{themeDark ? "Set Light Theme" : "Set Dark Theme"}</MenuItem>
+                <MenuItem onClick={() => handleTheme()}>{dark ? "Set Light Theme" : "Set Dark Theme"}</MenuItem>
               </Menu>
             </Grid>
           </Grid>
@@ -118,10 +118,10 @@ export default function TopAppBar() {
           <Grid item xs>
             <Grid container justify="flex-end">
               <IconButton color="primary" onClick={() => handleTheme()}>
-                {themeDark ? <Brightess7Icon /> : <Brightess3Icon />}
+                {dark ? <Brightess7Icon /> : <Brightess3Icon />}
               </IconButton>
               {medias.map(media => (
-                <IconButton color="primary" onClick={() => openUrl(media.url)}>
+                <IconButton key={media.url} color="primary" onClick={() => openUrl(media.url)}>
                   {media.icon}
                 </IconButton>
               ))}

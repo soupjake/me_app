@@ -1,56 +1,27 @@
 import { createMuiTheme, Theme, fade } from "@material-ui/core/styles";
-import { grey, green } from "@material-ui/core/colors";
+import { blue } from "@material-ui/core/colors";
+import { getThemeBase } from "../helpers/theme-helper";
 
-const secondary = fade(green.A700, 0.1);
-
-const margin = {
-  marginTop: 8,
-  marginBottom: 8
-};
+const primary: string = blue[500];
+const secondary: string = fade(primary, 0.1);
+const themeBase: Theme = getThemeBase(secondary);
 
 const DarkTheme: Theme = createMuiTheme({
+  ...themeBase,
   palette: {
     primary: {
-      main: green.A700
+      main: primary
     },
     secondary: {
       main: secondary
     },
     background: {
-      default: "#2E3032",
-      paper: "#1F2123"
+      default: "#FFFFFF",
+      paper: "#FFFFFF"
     },
     text: {
-      primary: grey[50]
-    },
-    type: "dark"
-  },
-  typography: {
-    fontFamily: "Public Sans, sans-serif",
-    h2: margin,
-    h4: margin,
-    h5: { ...margin, textAlign: "center" },
-    allVariants: {
-      lineHeight: 1.4,
-      letterSpacing: "0.0075em"
-    }
-  },
-  overrides: {
-    MuiCssBaseline: {
-      "@global": {
-        ".MuiSkeleton-root": {
-          backgroundColor: `${secondary} !important`,
-          borderRadius: 4
-        },
-        ".MuiExpansionPanel-root:before": {
-          backgroundColor: "unset !important"
-        }
-      }
-    },
-    MuiButton: {
-      root: {
-        fontWeight: "bold"
-      }
+      primary: "#333333",
+      secondary: "#233656"
     }
   }
 });

@@ -6,16 +6,20 @@ import { CssBaseline } from "@material-ui/core";
 import HelmetWrapper from "./Layout/HelmetWrapper";
 import Main from "./Layout/Main";
 import Home from "./Pages/Home";
-import DarkTheme from "../styles/light-theme";
+import DarkTheme from "../styles/dark-theme";
+import LightTheme from "../styles/light-theme";
+import { useSelector } from "react-redux";
+import { AppState } from "../store/app-state";
 import "./App.css";
 
 const history = createBrowserHistory();
 
 export default function App() {
+  const dark: boolean = useSelector((state: AppState) => state.theme.dark);
   const title: string = "Jacob Gough";
 
   return (
-    <ThemeProvider theme={DarkTheme}>
+    <ThemeProvider theme={dark ? DarkTheme : LightTheme}>
       <CssBaseline />
       <HelmetWrapper title={title} description={`${title}`}>
         <Router history={history}>

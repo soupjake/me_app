@@ -4,7 +4,5 @@ interface StoreState {
 }
 
 export interface ThemeState extends StoreState {
-  theme: ThemeType;
+  dark: boolean;
 }
-
-export type ThemeType = "dark" | "light";
