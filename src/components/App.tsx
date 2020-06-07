@@ -14,6 +14,9 @@ import { AppState } from "../store/app-state";
 import "./App.css";
 
 const history = createBrowserHistory();
+history.listen(_ => {
+  window.scrollTo(0, 0);
+});
 
 export default function App() {
   const dark: boolean = useSelector((state: AppState) => state.theme.dark);
