@@ -43,8 +43,16 @@ export default function PieChart(props: PieChartProps) {
       }
     },
     rotation: 0.5 * Math.PI,
-    tooltips: tooltipStyle(theme)
+    tooltips: tooltipStyle(theme),
+    onHover: function (this: Chart, event: MouseEvent, activeElements: Array<any>) {
+      if (activeElements.length) {
+        const hoverIndex: number = activeElements[0]._index;
+        handleOnHover(skills[hoverIndex].name);
+      } else {
+        handleOnHover("");
+      }
+    }
   };
 
-  return <Pie height={400} data={formatData()} redraw options={chartOptions} />;
+  return <Pie height={400} data={formatData()} options={chartOptions} />;
 }
