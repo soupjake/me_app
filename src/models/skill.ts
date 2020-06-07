@@ -1,6 +1,5 @@
-export default interface Skill {
-  name: string;
+import Data from "./data";
+
+export default interface Skill extends Data {
   level: string;
-  value: number;
-  description: string;
 }

@@ -122,7 +122,7 @@ export default function Home() {
             <ExpansionPanel elevation={0} className={classes.expansionPanel}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography variant="body1" className={classesBase.boldText}>
-                  Timeline
+                  Experience
                 </Typography>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
@@ -141,8 +141,8 @@ export default function Home() {
                     </Typography>
                   </Grid>
                   <Grid item>
-                    <LinkButton className={classes.linkButton} to="/timeline">
-                      Timeline
+                    <LinkButton className={classes.linkButton} to="/experience">
+                      Experience
                     </LinkButton>
                   </Grid>
                 </Grid>

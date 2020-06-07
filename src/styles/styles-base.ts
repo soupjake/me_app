@@ -55,14 +55,6 @@ const useStylesBase = makeStyles((theme: Theme) =>
       height: 200,
       width: 200,
       margin: "auto"
-    },
-    card: {
-      display: "flex",
-      flexDirection: "column",
-      height: "100%"
-    },
-    cardPadding: {
-      padding: theme.spacing(2)
     }
   })
 );

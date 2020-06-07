@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Event1",
+    "date": "01/2020",
+    "value": 50.0,
+    "description": "description"
+  },
+  {
+    "name": "Event2",
+    "date": "03/2020",
+    "value": 80.0,
+    "description": "description"
+  },
+  {
+    "name": "Event4",
+    "date": "05/2020",
+    "value": 60.0,
+    "description": "description"
+  }
+]

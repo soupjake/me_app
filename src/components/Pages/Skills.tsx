@@ -39,12 +39,9 @@ export default function Skills() {
   const smAndDown: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
   useEffect(() => {
-    async function test() {
-      if (!skills.length && !error) {
-        dispatch(getSkillsRequest());
-      }
+    if (!skills.length && !error) {
+      dispatch(getSkillsRequest());
     }
-    test();
   }, [skills.length, error, dispatch]);
 
   const pieLoading = (
