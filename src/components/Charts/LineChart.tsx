@@ -4,7 +4,8 @@ import { Line } from "react-chartjs-2";
 import { ChartData, ChartOptions } from "chart.js";
 import { useTheme } from "@material-ui/styles";
 import Event from "../../models/event";
-import { chartFont, tooltipStyle, createGradient } from "../../helpers/chart-helper";
+import { chartFont, tooltipStyle, createGradient, registerVerticalLinePlugin } from "../../helpers/chart-helper";
+import moment from "moment";
 
 interface LineChartProps {
   experience: Event[];
@@ -30,20 +31,13 @@ export default function LineChart(props: LineChartProps) {
           borderJoinStyle: "round",
           lineTension: 0.2,
           pointHoverBorderWidth: 4,
-          hoverBorderColor: color,
-          pointBackgroundColor: function (context) {
-            let index = context.dataIndex;
-            let value = context.dataset.data[index];
-            return value < 0
-              ? "red" // draw negative values in red
-              : index % 2
-              ? "blue" // else, alternate values in blue and green
-              : "green";
-          }
+          hoverBorderColor: color
         }
       ]
     };
   }
+
+  const linePlugin = registerVerticalLinePlugin(color);
 
   const chartOptions: ChartOptions = {
     maintainAspectRatio: false,
@@ -82,7 +76,14 @@ export default function LineChart(props: LineChartProps) {
         }
       ]
     },
-    tooltips: tooltipStyle(theme)
+    tooltips: {
+      ...tooltipStyle(theme, false),
+      callbacks: {
+        label: function (tooltipItem: Chart.ChartTooltipItem, data: ChartData) {
+          return `${moment(tooltipItem.xLabel).format("MMM ' YY")}: ${tooltipItem.yLabel}`;
+        }
+      }
+    }
   };
 
   return (
@@ -90,6 +91,7 @@ export default function LineChart(props: LineChartProps) {
       height={smAndDown ? 300 : 400}
       data={canvas => formatData(canvas as HTMLCanvasElement)}
       options={chartOptions}
+      plugins={[linePlugin]}
     />
   );
 }

@@ -1,6 +1,4 @@
 import { fade, Theme } from "@material-ui/core/styles";
-import { ChartData as ChartDataJS } from "chart.js";
-import moment from "moment";
 
 export function createGradient(canvas: HTMLCanvasElement, color: string, height: number): CanvasGradient | undefined {
   const ctx: CanvasRenderingContext2D | null = canvas.getContext("2d");
@@ -14,18 +12,6 @@ export function createGradient(canvas: HTMLCanvasElement, color: string, height:
   gradient.addColorStop(1, fade(color, 0));
 
   return gradient;
-}
-
-export function tooltipLabel(tooltipItem: Chart.ChartTooltipItem, data: ChartDataJS): string {
-  let datasetLabel = "";
-  if (data.datasets && data.datasets.length > 1) {
-    datasetLabel = data.datasets[tooltipItem.datasetIndex!].label!;
-  }
-
-  const xLabel = moment(tooltipItem.xLabel).format("D MMM 'YY");
-  const yLabel = Number(tooltipItem.yLabel).toFixed(1);
-
-  return `(${datasetLabel}) ${xLabel}: ${yLabel}`;
 }
 
 export function registerVerticalLinePlugin(color: string) {
@@ -75,9 +61,9 @@ export function chartFont(theme: Theme) {
   };
 }
 
-export function tooltipStyle(theme: Theme) {
+export function tooltipStyle(theme: Theme, displayColors: boolean) {
   return {
-    displayColors: true,
+    displayColors: displayColors,
     backgroundColor: theme.palette.background.paper,
     titleFontSize: 0,
     titleMarginBottom: 2,

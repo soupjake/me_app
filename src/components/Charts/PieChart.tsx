@@ -51,7 +51,7 @@ export default function PieChart(props: PieChartProps) {
       }
     },
     rotation: 0.5 * Math.PI,
-    tooltips: tooltipStyle(theme),
+    tooltips: tooltipStyle(theme, true),
     onHover: function (this: Chart, event: MouseEvent, activeElements: Array<any>) {
       if (activeElements.length) {
         const hoverIndex: number = activeElements[0]._index;
