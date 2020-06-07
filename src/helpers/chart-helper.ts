@@ -70,7 +70,7 @@ export function chartFont(theme: Theme) {
   return {
     fontColor: theme.palette.text.primary,
     fontFamily: theme.typography.fontFamily,
-    fontSize: 10,
+    fontSize: 16,
     fontStyle: "bold"
   };
 }
@@ -78,7 +78,7 @@ export function chartFont(theme: Theme) {
 export function tooltipStyle(theme: Theme) {
   return {
     displayColors: true,
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.background.paper,
     titleFontSize: 0,
     titleMarginBottom: 2,
     bodyFontSize: 16,

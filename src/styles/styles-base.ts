@@ -1,12 +1,15 @@
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 
+export const darkBackground2: string = "#050406";
+export const lightBackground2: string = "#E3F2FE";
+
 const useStylesBase = makeStyles((theme: Theme) =>
   createStyles({
     background: {
       background:
         theme.palette.type === "dark"
-          ? `linear-gradient(${theme.palette.background.default},#050406)`
-          : `linear-gradient(${theme.palette.background.default}, #E3F2FE)`
+          ? `linear-gradient(${theme.palette.background.default}, ${darkBackground2})`
+          : `linear-gradient(${theme.palette.background.default}, ${lightBackground2})`
     },
     button: {
       margin: theme.spacing(1)

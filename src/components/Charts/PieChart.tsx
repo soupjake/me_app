@@ -6,6 +6,7 @@ import { useTheme } from "@material-ui/styles";
 import Skill from "../../models/skill";
 import { chartFont, tooltipStyle } from "../../helpers/chart-helper";
 import { red, green, blue } from "@material-ui/core/colors";
+import { darkBackground2, lightBackground2 } from "../../styles/styles-base";
 
 interface PieChartProps {
   skills: Skill[];
@@ -24,7 +25,7 @@ export default function PieChart(props: PieChartProps) {
         {
           data: skills.map((skill: Skill) => skill.value),
           backgroundColor: skills.map((_, index) => colors[index]),
-          borderColor: theme.palette.background.default,
+          borderColor: theme.palette.type === "dark" ? darkBackground2 : lightBackground2,
           borderWidth: theme.spacing(0.5)
         }
       ]

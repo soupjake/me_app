@@ -1,12 +1,12 @@
 [
   {
-    "name": "Front-End",
+    "name": "FrontEnd",
     "level": "Expert",
     "value": 50.0,
     "description": "description"
   },
   {
-    "name": "Back-End",
+    "name": "BackEnd",
     "level": "Advanced",
     "value": 35.0,
     "description": "description"

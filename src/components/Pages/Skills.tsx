@@ -13,10 +13,25 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { getHeaderSize, getSubheaderSize } from "../../helpers/text-helper";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Theme } from "@material-ui/core/styles";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import PieChart from "../Charts/PieChart";
+import clsx from "clsx";
 
-export default function Images() {
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    skill: {
+      padding: theme.spacing(2),
+      opacity: 1.0,
+      transition: theme.transitions.create("opacity")
+    },
+    nonHover: {
+      opacity: 0.5
+    }
+  })
+);
+
+export default function Skills() {
+  const classes = useStyles();
   const classesBase = useStylesBase();
   const { skills, loading, error } = useSelector((state: AppState) => state.skills);
   const [hover, setHover] = useState<string>("");
@@ -54,7 +69,7 @@ export default function Images() {
         <Grid container spacing={2}>
           {skills.map((skill: Skill) => (
             <Grid item xs={12} key={skill.name}>
-              <Paper elevation={0} style={{ opacity: hover ? (hover === skill.name ? 1.0 : 0.5) : 1.0 }}>
+              <Paper elevation={0} className={clsx(classes.skill, hover && hover !== skill.name && classes.nonHover)}>
                 <Typography variant="h6">{skill.name}</Typography>
               </Paper>
             </Grid>
