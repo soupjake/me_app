@@ -9,6 +9,6 @@ export async function getSkills(): Promise<Skill[]> {
       } catch (e) {
         reject({ message: e });
       }
-    }, 2000);
+    }, 1000);
   });
 }

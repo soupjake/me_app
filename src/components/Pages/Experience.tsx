@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, ChangeEvent } from "react";
 import Grid from "@material-ui/core/Grid";
 import experienceImage from "../../assets/experience.jpg";
 import Paper from "@material-ui/core/Paper";
+import Slider from "@material-ui/core/Slider";
 import Skeleton from "@material-ui/lab/Skeleton";
 import LinkButton from "../Navigation/LinkButton";
 import Event from "../../models/event";
 import useStylesBase from "../../styles/styles-base";
 import { useSelector, useDispatch } from "react-redux";
 import { AppState } from "../../store/app-state";
-import { getSkillsRequest } from "../../store/reducers/skills-reducers";
+import { getExperienceRequest } from "../../store/reducers/experience-reducers";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { getHeaderSize, getSubheaderSize } from "../../helpers/text-helper";
@@ -28,17 +29,24 @@ export default function Experience() {
   const classes = useStyles();
   const classesBase = useStylesBase();
   const { experience, loading, error } = useSelector((state: AppState) => state.experience);
-  const dispatch = useDispatch();
+  const [values, setValues] = useState<number[]>([0, 0]);
   const smAndDown: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!experience.length && !error) {
-      dispatch(getSkillsRequest());
+      dispatch(getExperienceRequest());
+    } else {
+      setValues([0, experience.length - 1]);
     }
   }, [experience.length, error, dispatch]);
 
+  const handleChange = (event: ChangeEvent<{}>, newValues: number | number[]) => {
+    setValues(newValues as number[]);
+  };
+
   const content = loading ? (
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12}>
       <Grid container>
         <Skeleton variant="rect" height={smAndDown ? 300 : 400} width="100%" />
       </Grid>
@@ -49,12 +57,15 @@ export default function Experience() {
     </Grid>
   ) : (
     <>
-      <Grid item xs={12} md={6}>
-        <LineChart experience={experience} smAndDown={smAndDown} />
+      <Grid item xs={12}>
+        <LineChart experience={experience} values={values} smAndDown={smAndDown} />
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12}>
+        <Slider value={values} max={experience.length - 1} onChange={handleChange} valueLabelDisplay="auto" />
+      </Grid>
+      <Grid item xs={12}>
         <Grid container spacing={2}>
-          {experience.map((event: Event) => (
+          {experience.slice(values[0], values[1] + 1).map((event: Event) => (
             <Grid item xs={12} key={event.name}>
               <Paper elevation={0} className={classes.event}>
                 <Typography variant="h6">{event.name}</Typography>

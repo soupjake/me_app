@@ -5,10 +5,10 @@ import { ChartData, ChartOptions } from "chart.js";
 import { useTheme } from "@material-ui/styles";
 import Event from "../../models/event";
 import { chartFont, tooltipStyle, createGradient } from "../../helpers/chart-helper";
-import { darkBackground2, lightBackground2 } from "../../styles/styles-base";
 
 interface LineChartProps {
   experience: Event[];
+  values: number[];
   smAndDown: boolean;
 }
 
@@ -28,9 +28,18 @@ export default function LineChart(props: LineChartProps) {
           backgroundColor: createGradient(canvas, color, height),
           borderColor: color,
           borderJoinStyle: "round",
-          lineTension: 0.0,
+          lineTension: 0.2,
           pointHoverBorderWidth: 4,
-          hoverBorderColor: color
+          hoverBorderColor: color,
+          pointBackgroundColor: function (context) {
+            let index = context.dataIndex;
+            let value = context.dataset.data[index];
+            return value < 0
+              ? "red" // draw negative values in red
+              : index % 2
+              ? "blue" // else, alternate values in blue and green
+              : "green";
+          }
         }
       ]
     };
@@ -44,7 +53,6 @@ export default function LineChart(props: LineChartProps) {
     scales: {
       xAxes: [
         {
-          id: "x-axis-0",
           type: "time",
           distribution: "series",
           time: {
@@ -52,10 +60,7 @@ export default function LineChart(props: LineChartProps) {
               day: "D MMM",
               month: "MMM 'YY"
             },
-            unit:
-              dateTab === DateRange.OneWeek || dateTab === DateRange.OneMonth || dateTab === DateRange.SixMonth
-                ? "day"
-                : "month"
+            unit: "month"
           },
           gridLines: {
             display: false
@@ -67,45 +72,11 @@ export default function LineChart(props: LineChartProps) {
             autoSkip: true,
             autoSkipPadding: theme.spacing(4)
           }
-        },
-        {
-          id: "x-axis-1",
-          type: "time",
-          distribution: fiveOrMax ? "linear" : "series",
-          gridLines: {
-            display: false
-          },
-          ticks: {
-            display: false
-          }
         }
       ],
       yAxes: [
         {
-          id: "y-axis-0",
-          scaleLabel: {
-            ...chartFont(theme),
-            display: !smAndDown,
-            labelString: "GBX"
-          },
-          gridLines: {
-            color: theme.palette.divider,
-            zeroLineColor: theme.palette.divider,
-            display: true
-          },
           ticks: {
-            ...chartFont(theme),
-            display: true,
-            autoSkip: true
-          }
-        },
-        {
-          id: "y-axis-1",
-          gridLines: {
-            display: false
-          },
-          ticks: {
-            max: Math.max(...volumes.map(volume => volume.y as number)) * 3,
             display: false
           }
         }
