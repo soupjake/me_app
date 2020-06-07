@@ -1,11 +1,11 @@
-import { put, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import { getSkills } from "../../services/skills-service";
 import { getSkillsRequest, getSkillsSuccess, getSkillsFailure } from "../reducers/skills-reducers";
 import Skill from "../../models/skill";
 
-async function* getSkillsSaga() {
+function* getSkillsSaga() {
   try {
-    const skills: Skill[] = await getSkills();
+    const skills: Skill[] = yield call(getSkills);
     yield put(getSkillsSuccess(skills));
   } catch (e) {
     console.error(e);

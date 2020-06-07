@@ -5,7 +5,7 @@ import { getThemeRequest, getThemeSuccess, getThemeFailure, setThemeRequest } fr
 
 function* getThemeSaga() {
   try {
-    const theme: boolean = getLocalTheme();
+    const theme: boolean = yield call(getLocalTheme);
     yield put(getThemeSuccess(theme));
   } catch (e) {
     console.error(e);
