@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Grid from "@material-ui/core/Grid";
-import skillsImage from "../../assets/skills.jpg";
+import experienceImage from "../../assets/experience.jpg";
 import Paper from "@material-ui/core/Paper";
 import Skeleton from "@material-ui/lab/Skeleton";
 import LinkButton from "../Navigation/LinkButton";
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function Skills() {
+export default function Experience() {
   const classes = useStyles();
   const classesBase = useStylesBase();
   const { skills, loading, error } = useSelector((state: AppState) => state.skills);
@@ -103,14 +103,14 @@ export default function Skills() {
 
   return (
     <Grid container className={classesBase.background}>
-      <img src={skillsImage} className={classesBase.headerImage} alt="skills_image" />
+      <img src={experienceImage} className={classesBase.headerImage} alt="experience_image" />
       <Typography variant={getHeaderSize(smAndDown)} align="right" className={classesBase.headerText}>
-        Skills
+        Experience
       </Typography>
       <Container maxWidth="lg">
         <Grid container justify="center" alignItems="center" className={classesBase.contentContainer} spacing={2}>
           <Grid item xs={12}>
-            <Typography variant={getSubheaderSize(smAndDown)}>My Skills</Typography>
+            <Typography variant={getSubheaderSize(smAndDown)}>My Experience</Typography>
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1">

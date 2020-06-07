@@ -2,8 +2,8 @@ import React from "react";
 import { Theme } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import TopAppBar from "./TopAppBar";
-import BottomNav from "./BottomNav";
+import TopAppBar from "../Navigation/TopAppBar";
+import BottomNav from "../Navigation/BottomNav";
 
 interface MainProps {
   children: JSX.Element;

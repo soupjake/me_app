@@ -5,7 +5,7 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import HomeIcon from "@material-ui/icons/Home";
 import KeyboardIcon from "@material-ui/icons/Keyboard";
-import TimelineIcon from "@material-ui/icons/Timeline";
+import TrendingUpIcon from "@material-ui/icons/TrendingUp";
 import { useLocation } from "react-router";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -40,11 +40,11 @@ export default function BottomNav() {
       <BottomNavigationAction label="Home" value="/" icon={<HomeIcon />} component={Link} to="/" />
       <BottomNavigationAction label="Skills" value="/skills" icon={<KeyboardIcon />} component={Link} to="/skills" />
       <BottomNavigationAction
-        label="Timeline"
-        value="/timeline"
-        icon={<TimelineIcon />}
+        label="Experience"
+        value="/experience"
+        icon={<TrendingUpIcon />}
         component={Link}
-        to="/timeline"
+        to="/experience"
       />
     </BottomNavigation>
   );

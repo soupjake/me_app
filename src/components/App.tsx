@@ -7,6 +7,7 @@ import HelmetWrapper from "./Layout/HelmetWrapper";
 import Main from "./Layout/Main";
 import Home from "./Pages/Home";
 import Skills from "./Pages/Skills";
+import Experience from "./Pages/Experience";
 import DarkTheme from "../styles/dark-theme";
 import LightTheme from "../styles/light-theme";
 import { useSelector } from "react-redux";
@@ -52,12 +53,12 @@ export default function App() {
                 }}
               />
               <Route
-                path="/timeline"
+                path="/experience"
                 exact
                 render={() => {
                   return (
-                    <HelmetWrapper title={`${title} - Timeline`} description={`Timeline of ${title}'s life.`}>
-                      <></>
+                    <HelmetWrapper title={`${title} - Experience`} description={`Experience of ${title}.`}>
+                      <Experience />
                     </HelmetWrapper>
                   );
                 }}

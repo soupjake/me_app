@@ -22,7 +22,7 @@ import useStylesBase from "../../styles/styles-base";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import { getHeaderSize, getSubheaderSize } from "../../helpers/text-helper";
-import LinkButton from "../Layout/LinkButton";
+import LinkButton from "../Navigation/LinkButton";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

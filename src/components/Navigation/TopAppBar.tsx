@@ -12,7 +12,7 @@ import LinkedInLogo from "@material-ui/icons/LinkedIn";
 import Brightess7Icon from "@material-ui/icons/Brightness7";
 import Brightess3Icon from "@material-ui/icons/Brightness3";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import LinkButton from "../Layout/LinkButton";
+import LinkButton from "./LinkButton";
 import useStylesBase from "../../styles/styles-base";
 import { Typography } from "@material-ui/core";
 import { openUrl } from "../../helpers/text-helper";
@@ -45,7 +45,7 @@ export default function TopAppBar() {
   const smAndDown: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const medias: Media[] = [
     {
-      url: "https://github.com/superjakegough",
+      url: "https://github.com/superjakegough/me_app",
       icon: <GitHubLogo color="primary" />
     },
     {
@@ -112,8 +112,8 @@ export default function TopAppBar() {
               <LinkButton className={classesBase.button} to="/skills">
                 Skills
               </LinkButton>
-              <LinkButton className={classesBase.button} to="/timeline">
-                Timeline
+              <LinkButton className={classesBase.button} to="/experience">
+                Experience
               </LinkButton>
             </Grid>
           </Grid>

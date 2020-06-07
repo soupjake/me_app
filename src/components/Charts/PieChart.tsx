@@ -5,18 +5,19 @@ import { ChartData as ChartDataJS, ChartOptions } from "chart.js";
 import { useTheme } from "@material-ui/styles";
 import Skill from "../../models/skill";
 import { chartFont, tooltipStyle } from "../../helpers/chart-helper";
-import { red, green, blue } from "@material-ui/core/colors";
+import { pink, purple, deepPurple } from "@material-ui/core/colors";
 import { darkBackground2, lightBackground2 } from "../../styles/styles-base";
 
 interface PieChartProps {
   skills: Skill[];
   handleOnHover: (name: string) => void;
+  smAndDown: boolean;
 }
 
 export default function PieChart(props: PieChartProps) {
   const theme: Theme = useTheme();
-  const { skills, handleOnHover } = props;
-  const colors: string[] = [red[500], green[500], blue[500]];
+  const { skills, handleOnHover, smAndDown } = props;
+  const colors: string[] = [pink[500], purple[500], deepPurple[500]];
 
   function formatData(): ChartDataJS {
     return {
@@ -55,5 +56,5 @@ export default function PieChart(props: PieChartProps) {
     }
   };
 
-  return <Pie height={400} data={formatData()} options={chartOptions} />;
+  return <Pie height={smAndDown ? 300 : 400} data={formatData()} options={chartOptions} />;
 }
