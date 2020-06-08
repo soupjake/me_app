@@ -1,19 +1,5 @@
 import { Theme, createMuiTheme } from "@material-ui/core/styles";
 
-export function getLocalTheme(): boolean {
-  const theme: string | null = window.localStorage.getItem("theme");
-
-  if (theme) {
-    return JSON.parse(theme);
-  } else {
-    throw new Error("Failed to get local theme.");
-  }
-}
-
-export function setLocalTheme(theme: boolean) {
-  window.localStorage.setItem("theme", theme.toString());
-}
-
 export function getThemeBase(secondary: string): Theme {
   const header = {
     fontWeight: "bold" as "bold"

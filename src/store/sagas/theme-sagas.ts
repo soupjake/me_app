@@ -1,17 +1,6 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { call, put, takeLatest } from "redux-saga/effects";
-import { getLocalTheme } from "../../helpers/theme-helper";
-import { getThemeRequest, getThemeSuccess, getThemeFailure, setThemeRequest } from "../reducers/theme-reducers";
-
-function* getThemeSaga() {
-  try {
-    const theme: boolean = yield call(getLocalTheme);
-    yield put(getThemeSuccess(theme));
-  } catch (e) {
-    console.error(e);
-    yield put(getThemeFailure());
-  }
-}
+import { call, takeLatest } from "redux-saga/effects";
+import { setThemeRequest } from "../reducers/theme-reducers";
 
 function* setThemeSaga(action: PayloadAction<boolean>) {
   try {
@@ -20,10 +9,6 @@ function* setThemeSaga(action: PayloadAction<boolean>) {
   } catch (e) {
     console.error(e);
   }
-}
-
-export function* getLatestTheme() {
-  yield takeLatest(getThemeRequest.type, getThemeSaga);
 }
 
 export function* setLatestTheme() {
