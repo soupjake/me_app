@@ -70,6 +70,9 @@ export default function LineChart(props: LineChartProps) {
       ],
       yAxes: [
         {
+          gridLines: {
+            display: false
+          },
           ticks: {
             display: false
           }

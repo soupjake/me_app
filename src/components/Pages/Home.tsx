@@ -66,140 +66,143 @@ export default function Home() {
   const whoImg: JSX.Element = <img className={classes.whoImage} src={whoImage} alt="main" />;
 
   return (
-    <Grid container className={classesBase.background}>
+    <>
       <img src={homeImage} className={classesBase.headerImage} alt="" />
       <Typography variant={getHeaderSize(smAndDown)} align="right" className={classesBase.headerText}>
         Jacob Gough
       </Typography>
-      <Container maxWidth="lg">
-        <Grid container justify="center" className={classesBase.contentContainer} spacing={2}>
-          <Grid item xs={12}>
-            <Typography variant={getSubheaderSize(smAndDown)}>Who I Am</Typography>
-          </Grid>
-          {smAndDown && (
-            <Grid container item xs={12} justify="center">
-              {whoImg}
-            </Grid>
-          )}
-          <Grid item xs={12} md={9}>
-            <Typography variant="body1">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-              rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-              explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-              consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-              dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
-              incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
-              exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
-              vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui
-              dolorem eum fugiat quo voluptas nulla pariatur?
-            </Typography>
-          </Grid>
-          {!smAndDown && (
-            <Grid item md={3}>
-              {whoImg}
-            </Grid>
-          )}
-          <Grid item xs={12}>
-            <Typography variant={getSubheaderSize(smAndDown)}>What I Do</Typography>
-            <ExpansionPanel elevation={0} defaultExpanded={true} className={classes.expansionPanel}>
-              <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography variant="body1" className={classes.expansionSummary}>
-                  Skills
-                </Typography>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
-                <Grid container direction="column" justify="center" alignItems="center">
-                  <Grid item>
-                    <Typography variant="body1">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                      in culpa qui officia deserunt mollit anim id est laborum.
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <LinkButton className={classes.linkButton} to="/skills">
-                      Skills
-                    </LinkButton>
-                  </Grid>
-                </Grid>
-              </ExpansionPanelDetails>
-            </ExpansionPanel>
-            <ExpansionPanel elevation={0} className={classes.expansionPanel}>
-              <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography variant="body1" className={classes.expansionSummary}>
-                  Experience
-                </Typography>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
-                <Grid container direction="column" justify="center" alignItems="center">
-                  <Grid item>
-                    <Typography variant="body1">
-                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                      totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                      dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-                      sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
-                      quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
-                      numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim
-                      ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
-                      ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-                      quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <LinkButton className={classes.linkButton} to="/experience">
-                      Experience
-                    </LinkButton>
-                  </Grid>
-                </Grid>
-              </ExpansionPanelDetails>
-            </ExpansionPanel>
-          </Grid>
-          <Grid item xs={12}>
-            <Divider />
-          </Grid>
-          <Grid container item xs={12} md={6} alignItems="center" spacing={2}>
+      <div className={classesBase.background}>
+        <Container maxWidth="lg">
+          <Grid container justify="center" className={classesBase.contentContainer} spacing={2}>
             <Grid item xs={12}>
-              <Avatar className={classes.avatar} src={avatar} alt="avatar" />
+              <Typography variant={getSubheaderSize(smAndDown)}>Who I Am</Typography>
             </Grid>
-            <Grid item xs={12}>
-              <Typography variant="h6" align="center">
-                Jacob Gough
+            {smAndDown && (
+              <Grid container item xs={12} justify="center">
+                {whoImg}
+              </Grid>
+            )}
+            <Grid item xs={12} md={9}>
+              <Typography variant="body1">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+                rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
+                dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
+                incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
+                exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
+                vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum
+                qui dolorem eum fugiat quo voluptas nulla pariatur?
               </Typography>
             </Grid>
+            {!smAndDown && (
+              <Grid item md={3}>
+                {whoImg}
+              </Grid>
+            )}
             <Grid item xs={12}>
-              <Typography variant="h6" align="center">
-                Awesome Software Developer
-              </Typography>
+              <Typography variant={getSubheaderSize(smAndDown)}>What I Do</Typography>
+              <ExpansionPanel elevation={0} defaultExpanded={true} className={classes.expansionPanel}>
+                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography variant="body1" className={classes.expansionSummary}>
+                    Skills
+                  </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  <Grid container direction="column" justify="center" alignItems="center">
+                    <Grid item>
+                      <Typography variant="body1">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                      </Typography>
+                    </Grid>
+                    <Grid item>
+                      <LinkButton className={classes.linkButton} to="/skills">
+                        Skills
+                      </LinkButton>
+                    </Grid>
+                  </Grid>
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+              <ExpansionPanel elevation={0} className={classes.expansionPanel}>
+                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography variant="body1" className={classes.expansionSummary}>
+                    Experience
+                  </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  <Grid container direction="column" justify="center" alignItems="center">
+                    <Grid item>
+                      <Typography variant="body1">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                        beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+                        sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                        laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui
+                        in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+                        quo voluptas nulla pariatur?
+                      </Typography>
+                    </Grid>
+                    <Grid item>
+                      <LinkButton className={classes.linkButton} to="/experience">
+                        Experience
+                      </LinkButton>
+                    </Grid>
+                  </Grid>
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+            </Grid>
+            <Grid item xs={12}>
+              <Divider />
+            </Grid>
+            <Grid container item xs={12} md={6} alignItems="center" spacing={2}>
+              <Grid item xs={12}>
+                <Avatar className={classes.avatar} src={avatar} alt="avatar" />
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="h6" align="center">
+                  Jacob Gough
+                </Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="h6" align="center">
+                  Awesome Software Developer
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Grid container justify="center" alignItems="center" className={classes.list}>
+                <List>
+                  <ListItem>
+                    <ListItemIcon>
+                      <LocationOnIcon color="primary" fontSize="large" />
+                    </ListItemIcon>
+                    <ListItemText primary="Location" secondary="Cardiff, Wales" />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemIcon>
+                      <EmailIcon color="primary" fontSize="large" />
+                    </ListItemIcon>
+                    <ListItemText primary="Email" secondary="super.jake@hotmail.co.uk" />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemIcon>
+                      <PhoneIcon color="primary" fontSize="large" />
+                    </ListItemIcon>
+                    <ListItemText primary="Telephone" secondary="+447980595710" />
+                  </ListItem>
+                </List>
+              </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <Grid container justify="center" alignItems="center" className={classes.list}>
-              <List>
-                <ListItem>
-                  <ListItemIcon>
-                    <LocationOnIcon color="primary" fontSize="large" />
-                  </ListItemIcon>
-                  <ListItemText primary="Location" secondary="Cardiff, Wales" />
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon>
-                    <EmailIcon color="primary" fontSize="large" />
-                  </ListItemIcon>
-                  <ListItemText primary="Email" secondary="super.jake@hotmail.co.uk" />
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon>
-                    <PhoneIcon color="primary" fontSize="large" />
-                  </ListItemIcon>
-                  <ListItemText primary="Telephone" secondary="+447980595710" />
-                </ListItem>
-              </List>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Container>
-    </Grid>
+        </Container>
+      </div>
+    </>
   );
 }

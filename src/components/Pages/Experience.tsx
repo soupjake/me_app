@@ -92,24 +92,26 @@ export default function Experience() {
   );
 
   return (
-    <Grid container className={classesBase.background}>
+    <>
       <img src={experienceImage} className={classesBase.headerImage} alt="experience_image" />
       <Typography variant={getHeaderSize(smAndDown)} align="right" className={classesBase.headerText}>
         Experience
       </Typography>
-      <Container maxWidth="lg">
-        <Grid container justify="center" alignItems="center" className={classesBase.contentContainer} spacing={2}>
-          <Grid item xs={12}>
-            <Typography variant={getSubheaderSize(smAndDown)}>My Experience</Typography>
-          </Grid>
-          {content}
-          <Grid item xs={12}>
-            <Grid container justify="center">
-              <LinkButton to="/">Home</LinkButton>
+      <div className={classesBase.background}>
+        <Container maxWidth="lg">
+          <Grid container justify="center" alignItems="center" className={classesBase.contentContainer} spacing={2}>
+            <Grid item xs={12}>
+              <Typography variant={getSubheaderSize(smAndDown)}>My Experience</Typography>
+            </Grid>
+            {content}
+            <Grid item xs={12}>
+              <Grid container justify="center">
+                <LinkButton to="/">Home</LinkButton>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </Container>
-    </Grid>
+        </Container>
+      </div>
+    </>
   );
 }
