@@ -51,7 +51,17 @@ export default function PieChart(props: PieChartProps) {
       }
     },
     rotation: 0.5 * Math.PI,
-    tooltips: tooltipStyle(theme, true),
+    tooltips: {
+      ...tooltipStyle(theme, true),
+      callbacks: {
+        label: function (tooltipItem: Chart.ChartTooltipItem, data: ChartData) {
+          if (tooltipItem.index !== undefined) {
+            return `${labels[tooltipItem.index]}: ${skills[tooltipItem.index].level}`;
+          }
+          return "";
+        }
+      }
+    },
     onHover: function (this: Chart, event: MouseEvent, activeElements: Array<any>) {
       if (activeElements.length) {
         const hoverIndex: number = activeElements[0]._index;
