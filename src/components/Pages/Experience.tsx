@@ -21,6 +21,21 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     event: {
       padding: theme.spacing(2)
+    },
+    fade: {
+      animationName: "$fadein",
+      animationDuration: `${theme.transitions.duration.standard}ms`,
+      animationTimingFunction: theme.transitions.easing.easeInOut
+    },
+    "@keyframes fadein": {
+      "0%": {
+        opacity: 0,
+        height: 0
+      },
+      "100%": {
+        opacity: 1,
+        height: 78
+      }
     }
   })
 );
@@ -66,7 +81,7 @@ export default function Experience() {
       <Grid item xs={12}>
         <Grid container spacing={2}>
           {experience.slice(values[0], values[1] + 1).map((event: Event) => (
-            <Grid item xs={12} key={event.name}>
+            <Grid item xs={12} key={event.name} className={classes.fade}>
               <Paper elevation={0} className={classes.event}>
                 <Typography variant="h6">{event.name}</Typography>
               </Paper>
