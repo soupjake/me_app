@@ -51,47 +51,45 @@ export default function Experience() {
     setValues(newValues as number[]);
   };
 
-  const content = loading ? (
-    <Grid item xs={12}>
-      <Grid container>
-        <Skeleton variant="rect" height={smAndDown ? 300 : 400} width="100%" />
-      </Grid>
-    </Grid>
-  ) : error || !experience.length ? (
-    <Grid item xs={12}>
-      <Typography variant="h6">No experience to show.</Typography>
-    </Grid>
-  ) : (
-    <>
-      <Hidden xsDown>
-        <Grid item xs={12}>
-          <LineChart experience={experience} values={values} smAndDown={smAndDown} />
-        </Grid>
-        <Grid item xs={12}>
-          <Slider value={values} max={experience.length - 1} onChange={handleChange} valueLabelDisplay="off" />
-        </Grid>
-      </Hidden>
-      <Grid item xs={12}>
-        <Grid container spacing={2} justify="center">
-          {experience
-            .slice(values[0], values[1] + 1)
-            .reverse()
-            .map((event: Event) => (
-              <Grid item xs={12} md={6} key={event.name} className={classes.fade}>
-                <DataPaper title={event.name} subtitle={formatDate(event.date)} info={event.description} />
-              </Grid>
-            ))}
-        </Grid>
-      </Grid>
-    </>
-  );
-
   return (
     <>
       <Grid item xs={12}>
         <Typography variant={getSubheaderSize(smAndDown)}>My Experience</Typography>
       </Grid>
-      {content}
+      {loading ? (
+        <Grid item xs={12}>
+          <Grid container>
+            <Skeleton variant="rect" height={smAndDown ? 300 : 400} width="100%" />
+          </Grid>
+        </Grid>
+      ) : error || !experience.length ? (
+        <Grid item xs={12}>
+          <Typography variant="h6">No experience to show.</Typography>
+        </Grid>
+      ) : (
+        <>
+          <Hidden xsDown>
+            <Grid item xs={12}>
+              <LineChart experience={experience} values={values} smAndDown={smAndDown} />
+            </Grid>
+            <Grid item xs={12}>
+              <Slider value={values} max={experience.length - 1} onChange={handleChange} valueLabelDisplay="off" />
+            </Grid>
+          </Hidden>
+          <Grid item xs={12}>
+            <Grid container spacing={2} justify="center">
+              {experience
+                .slice(values[0], values[1] + 1)
+                .reverse()
+                .map((event: Event) => (
+                  <Grid item xs={12} md={6} key={event.name} className={classes.fade}>
+                    <DataPaper title={event.name} subtitle={formatDate(event.date)} info={event.description} />
+                  </Grid>
+                ))}
+            </Grid>
+          </Grid>
+        </>
+      )}
     </>
   );
 }
