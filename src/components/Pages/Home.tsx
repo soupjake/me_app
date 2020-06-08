@@ -74,7 +74,7 @@ export default function Home() {
     <>
       <img src={homeImage} className={classes.headerImage} alt="" />
       <Typography variant={getHeaderSize(smAndDown)} align="right" className={classes.headerText}>
-        Jacob Gough
+        Jake Gough
       </Typography>
       <div className={classes.background}>
         <Container maxWidth="lg">
@@ -100,7 +100,7 @@ export default function Home() {
               </Grid>
               <Grid item xs={12}>
                 <Typography variant="h6" align="center">
-                  Jacob Gough
+                  Jake Gough
                 </Typography>
               </Grid>
               <Grid item xs={12}>
