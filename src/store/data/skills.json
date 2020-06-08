@@ -3,18 +3,18 @@
     "name": "FrontEnd",
     "level": "Expert",
     "value": 50.0,
-    "description": "description"
+    "description": "Extremely skilled and confident use of React with Functional & Hook principals, Typescript, Material UI, Redux Sagas and Responsive Designs. Use the GitHub icon in the top bar to check out this web app’s code as an example and try the app on a mobile!"
   },
   {
     "name": "BackEnd",
     "level": "Advanced",
     "value": 35.0,
-    "description": "description"
+    "description": "Strong NodeJS Typescript skills for creating simple and efficient Microservices along with efficient C# background for developing more complex, object orientated APIs."
   },
   {
     "name": "DevOps",
     "level": "Basic",
     "value": 15.0,
-    "description": "description"
+    "description": "Fundamental AWS understanding of DynamoDB, S3, Cloudfront and Serverless Lambda deployment. Also use of Netflify for web app hosting."
   }
 ]

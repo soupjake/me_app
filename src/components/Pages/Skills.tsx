@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     nonHover: {
       opacity: 0.5
+    },
+    level: {
+      fontWeight: "normal",
+      marginBottom: theme.spacing(2)
     }
   })
 );
@@ -88,7 +92,13 @@ export default function Skills() {
           {skills.map((skill: Skill) => (
             <Grid item xs={12} key={skill.name}>
               <Paper elevation={0} className={clsx(classes.skill, hover && hover !== skill.name && classes.nonHover)}>
-                <Typography variant="h6">{skill.name}</Typography>
+                <Grid container justify="space-between">
+                  <Typography variant="h6">{skill.name}</Typography>
+                  <Typography variant="h6" className={classes.level} color="primary">
+                    {skill.level}
+                  </Typography>
+                </Grid>
+                <Typography variant="body1">{skill.description}</Typography>
               </Paper>
             </Grid>
           ))}
