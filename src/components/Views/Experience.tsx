@@ -1,19 +1,15 @@
 import React, { useEffect, useState, ChangeEvent } from "react";
 import Grid from "@material-ui/core/Grid";
-import experienceImage from "../../assets/experience.jpg";
 import Slider from "@material-ui/core/Slider";
 import Hidden from "@material-ui/core/Hidden";
 import Skeleton from "@material-ui/lab/Skeleton";
 import DataPaper from "../Layout/DataPaper";
-import LinkButton from "../Navigation/LinkButton";
 import Event from "../../models/event";
-import useStylesBase from "../../styles/styles-base";
 import { useSelector, useDispatch } from "react-redux";
 import { AppState } from "../../store/app-state";
 import { getExperienceRequest } from "../../store/reducers/experience-reducers";
 import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import { getHeaderSize, getSubheaderSize, formatDate } from "../../helpers/text-helper";
+import { getSubheaderSize, formatDate } from "../../helpers/text-helper";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import LineChart from "../Charts/LineChart";
@@ -38,7 +34,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Experience() {
   const classes = useStyles();
-  const classesBase = useStylesBase();
   const { experience, loading, error } = useSelector((state: AppState) => state.experience);
   const [values, setValues] = useState<number[]>([0, 0]);
   const smAndDown: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
@@ -93,25 +88,10 @@ export default function Experience() {
 
   return (
     <>
-      <img src={experienceImage} className={classesBase.headerImage} alt="experience_image" />
-      <Typography variant={getHeaderSize(smAndDown)} align="right" className={classesBase.headerText}>
-        Experience
-      </Typography>
-      <div className={classesBase.background}>
-        <Container maxWidth="lg">
-          <Grid container justify="center" alignItems="center" className={classesBase.contentContainer} spacing={2}>
-            <Grid item xs={12}>
-              <Typography variant={getSubheaderSize(smAndDown)}>My Experience</Typography>
-            </Grid>
-            {content}
-            <Grid item xs={12}>
-              <Grid container justify="center">
-                <LinkButton to="/">Home</LinkButton>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Container>
-      </div>
+      <Grid item xs={12}>
+        <Typography variant={getSubheaderSize(smAndDown)}>My Experience</Typography>
+      </Grid>
+      {content}
     </>
   );
 }

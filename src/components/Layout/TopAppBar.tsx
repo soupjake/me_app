@@ -12,7 +12,6 @@ import LinkedInLogo from "@material-ui/icons/LinkedIn";
 import Brightess7Icon from "@material-ui/icons/Brightness7";
 import Brightess3Icon from "@material-ui/icons/Brightness3";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import LinkButton from "./LinkButton";
 import { Typography } from "@material-ui/core";
 import { openUrl } from "../../helpers/text-helper";
 import Media from "../../models/media";
@@ -102,19 +101,6 @@ export default function TopAppBar() {
       <Toolbar>
         <Grid container alignItems="center">
           {name}
-          <Grid item xs>
-            <Grid container justify="center" wrap="nowrap" spacing={1}>
-              <Grid item>
-                <LinkButton to="/">Home</LinkButton>
-              </Grid>
-              <Grid item>
-                <LinkButton to="/skills">Skills</LinkButton>
-              </Grid>
-              <Grid item>
-                <LinkButton to="/experience">Experience</LinkButton>
-              </Grid>
-            </Grid>
-          </Grid>
           <Grid item xs>
             <Grid container justify="flex-end">
               <IconButton color="primary" onClick={() => handleTheme()}>

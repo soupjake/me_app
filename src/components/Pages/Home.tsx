@@ -2,30 +2,44 @@ import React from "react";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Avatar from "@material-ui/core/Avatar";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import EmailIcon from "@material-ui/icons/Email";
 import PhoneIcon from "@material-ui/icons/Phone";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Skills from "../Views/Skills";
+import Experience from "../Views/Experience";
 import homeImage from "../../assets/home.jpg";
 import whoImage from "../../assets/who.jpg";
 import avatar from "../../assets/avatar.jpg";
-import useStylesBase from "../../styles/styles-base";
-import Typography from "@material-ui/core/Typography";
-import Avatar from "@material-ui/core/Avatar";
 import { getHeaderSize, getSubheaderSize } from "../../helpers/text-helper";
-import LinkButton from "../Navigation/LinkButton";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    headerImage: {
+      height: "100vh",
+      width: "100%",
+      objectFit: "cover",
+      [theme.breakpoints.down("md")]: {
+        height: `calc(100vh - ${theme.spacing(7)})`
+      }
+    },
+    headerText: {
+      position: "absolute",
+      bottom: 0,
+      right: 0,
+      color: "#FFFFFF",
+      padding: theme.spacing(4),
+      [theme.breakpoints.down("md")]: {
+        padding: theme.spacing(2)
+      }
+    },
     whoImage: {
       width: "100%",
       objectFit: "cover",
@@ -37,16 +51,11 @@ const useStyles = makeStyles((theme: Theme) =>
         marginBottom: theme.spacing(2)
       }
     },
-    expansionSummary: {
-      fontWeight: "bold"
-    },
-    expansionPanel: {
-      borderRadius: 4,
-      marginBottom: theme.spacing(2)
-    },
-    linkButton: {
-      marginTop: theme.spacing(2),
-      marginBottom: -theme.spacing(1)
+    background: {
+      background:
+        theme.palette.type === "dark"
+          ? `linear-gradient(${theme.palette.background.default}, #050406)`
+          : `linear-gradient(${theme.palette.background.default}, #E3F2FE)`
     },
     avatar: {
       height: 200,
@@ -61,19 +70,18 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Home() {
   const classes = useStyles();
-  const classesBase = useStylesBase();
   const smAndDown: boolean = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const whoImg: JSX.Element = <img className={classes.whoImage} src={whoImage} alt="main" />;
 
   return (
     <>
-      <img src={homeImage} className={classesBase.headerImage} alt="" />
-      <Typography variant={getHeaderSize(smAndDown)} align="right" className={classesBase.headerText}>
+      <img src={homeImage} className={classes.headerImage} alt="" />
+      <Typography variant={getHeaderSize(smAndDown)} align="right" className={classes.headerText}>
         Jacob Gough
       </Typography>
-      <div className={classesBase.background}>
+      <div className={classes.background}>
         <Container maxWidth="lg">
-          <Grid container justify="center" className={classesBase.contentContainer} spacing={2}>
+          <Grid container justify="center" spacing={2}>
             <Grid item xs={12}>
               <Typography variant={getSubheaderSize(smAndDown)}>Who I Am</Typography>
             </Grid>
@@ -100,64 +108,8 @@ export default function Home() {
                 {whoImg}
               </Grid>
             )}
-            <Grid item xs={12}>
-              <Typography variant={getSubheaderSize(smAndDown)}>What I Do</Typography>
-              <ExpansionPanel elevation={0} defaultExpanded={true} className={classes.expansionPanel}>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                  <Typography variant="body1" className={classes.expansionSummary}>
-                    Skills
-                  </Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  <Grid container direction="column" justify="center" alignItems="center">
-                    <Grid item>
-                      <Typography variant="body1">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                      </Typography>
-                    </Grid>
-                    <Grid item>
-                      <LinkButton className={classes.linkButton} to="/skills">
-                        Skills
-                      </LinkButton>
-                    </Grid>
-                  </Grid>
-                </ExpansionPanelDetails>
-              </ExpansionPanel>
-              <ExpansionPanel elevation={0} className={classes.expansionPanel}>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                  <Typography variant="body1" className={classes.expansionSummary}>
-                    Experience
-                  </Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  <Grid container direction="column" justify="center" alignItems="center">
-                    <Grid item>
-                      <Typography variant="body1">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                        beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-                        sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                        laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui
-                        in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
-                        quo voluptas nulla pariatur?
-                      </Typography>
-                    </Grid>
-                    <Grid item>
-                      <LinkButton className={classes.linkButton} to="/experience">
-                        Experience
-                      </LinkButton>
-                    </Grid>
-                  </Grid>
-                </ExpansionPanelDetails>
-              </ExpansionPanel>
-            </Grid>
+            <Skills />
+            <Experience />
             <Grid item xs={12}>
               <Divider />
             </Grid>
