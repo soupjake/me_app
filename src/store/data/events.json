@@ -1,20 +1,38 @@
 [
   {
-    "name": "Event1",
-    "date": "2020-01-01",
-    "value": 50.0,
-    "description": "description"
+    "name": "BSc (Hons) Psychology with Neuroscience, 2:1",
+    "date": "2012-07-01",
+    "value": 20,
+    "description": "Establish a good knowledge and critical understanding in biological psychology, cognitive psychology, developmental psychology, social psychology, individual differences and neuroscience. \n\n Establish awareness of contextual and interpersonal factors in groups and teams, and to develop the interpersonal skills that will allow effective participation in co-operative group planning and decision making."
   },
   {
-    "name": "Event2",
-    "date": "2020-03-01",
-    "value": 80.0,
-    "description": "description"
+    "name": "MRes Psychological Methods, Merit",
+    "date": "2013-09-01",
+    "value": 40,
+    "description": "Demonstrate an ability to use the methods of psychological research including quantitative, qualitative, advanced empirical methods and advanced quantitative methods. \n\n Show enhanced skills in learning, presenting new subject areas and the independent learning ability required for continuing professional development."
   },
   {
-    "name": "Event4",
-    "date": "2020-05-01",
-    "value": 60.0,
-    "description": "description"
+    "name": "MSc Computing, Distinction",
+    "date": "2017-08-01",
+    "value": 100,
+    "description": "Gaining first-hand understanding of the vital problem-solving role of software engineering, what computational systems can achieve and programming skills. \n\n Emphasis placed handling data and software development with dissertation project consisting of designing and developing a Weather Radar Android App."
+  },
+  {
+    "name": "Software Developer, Welsh Blood Serivce",
+    "date": "2017-09-01",
+    "value": 120,
+    "description": "Creation and maintaining following of Electronic Roster System and Lab Inventory System first built with C# WPF front-end and MSSQL back-end with MVVM design pattern. Recreated as a MVC SPA with Vue.js & Vuetify front-end, ASP.NET Core C# back-end with MSSQL database, micro-ORM Dapper and Newtonsoft.Json. \n\n Created Manager Directory and Emergency Protocol Mobile App first created with Xamarin C# then recreated with Flutter framework to enable the development for both Android and iOS with a single code base. \n\n Also Lead Developer for Velindre Trust Virtual Assistant “RiTTa” with IBM."
+  },
+  {
+    "name": "Web Application Developer, Web.com",
+    "date": "2019-02-01",
+    "value": 140,
+    "description": "Angular, Angular Material, NgRx, SCSS SPA front-end with jest testing. \n\n ASP.NET Core RESTful API backend with Moq and xUnit testing. \n Agile development with JIRA and bitbucket along with CI provided by Bamboo and Octopus Deploy."
+  },
+  {
+    "name": "Software Developer, AMPLYFI",
+    "date": "2019-06-01",
+    "value": 200,
+    "description": "Full-Stack Software Engineer using: \n\n • AWS with Serverless Lambdas, DynamoDB & S3 \n • C# & NodeJS for APIs & Microservices \n • React with Functional & Hook principals \n • TypeScript \n • Redux Sagas \n • Material UI \n • ChartJS"
   }
 ]

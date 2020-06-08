@@ -5,7 +5,7 @@ import { ChartData, ChartOptions } from "chart.js";
 import { useTheme } from "@material-ui/styles";
 import Event from "../../models/event";
 import { chartFont, tooltipStyle, createGradient, registerVerticalLinePlugin } from "../../helpers/chart-helper";
-import moment from "moment";
+import { formatDate } from "../../helpers/text-helper";
 
 interface LineChartProps {
   experience: Event[];
@@ -80,7 +80,8 @@ export default function LineChart(props: LineChartProps) {
       ...tooltipStyle(theme, false),
       callbacks: {
         label: function (tooltipItem: Chart.ChartTooltipItem, data: ChartData) {
-          return `${moment(tooltipItem.xLabel).format("MMM ' YY")}: ${tooltipItem.yLabel}`;
+          const name: string = tooltipItem.index !== undefined ? `${experience[tooltipItem.index].name} : ` : "";
+          return `${name}${formatDate(tooltipItem.xLabel)}`;
         }
       }
     }

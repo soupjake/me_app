@@ -1,9 +1,10 @@
 import React, { useEffect, useState, ChangeEvent } from "react";
 import Grid from "@material-ui/core/Grid";
 import experienceImage from "../../assets/experience.jpg";
-import Paper from "@material-ui/core/Paper";
 import Slider from "@material-ui/core/Slider";
+import Hidden from "@material-ui/core/Hidden";
 import Skeleton from "@material-ui/lab/Skeleton";
+import DataPaper from "../Layout/DataPaper";
 import LinkButton from "../Navigation/LinkButton";
 import Event from "../../models/event";
 import useStylesBase from "../../styles/styles-base";
@@ -12,16 +13,13 @@ import { AppState } from "../../store/app-state";
 import { getExperienceRequest } from "../../store/reducers/experience-reducers";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import { getHeaderSize, getSubheaderSize } from "../../helpers/text-helper";
+import { getHeaderSize, getSubheaderSize, formatDate } from "../../helpers/text-helper";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import LineChart from "../Charts/LineChart";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    event: {
-      padding: theme.spacing(2)
-    },
     fade: {
       animationName: "$fadein",
       animationDuration: `${theme.transitions.duration.standard}ms`,
@@ -29,12 +27,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     "@keyframes fadein": {
       "0%": {
-        opacity: 0,
-        height: 0
+        opacity: 0
       },
       "100%": {
-        opacity: 1,
-        height: 78
+        opacity: 1
       }
     }
   })
@@ -72,21 +68,24 @@ export default function Experience() {
     </Grid>
   ) : (
     <>
+      <Hidden xsDown>
+        <Grid item xs={12}>
+          <LineChart experience={experience} values={values} smAndDown={smAndDown} />
+        </Grid>
+        <Grid item xs={12}>
+          <Slider value={values} max={experience.length - 1} onChange={handleChange} valueLabelDisplay="off" />
+        </Grid>
+      </Hidden>
       <Grid item xs={12}>
-        <LineChart experience={experience} values={values} smAndDown={smAndDown} />
-      </Grid>
-      <Grid item xs={12}>
-        <Slider value={values} max={experience.length - 1} onChange={handleChange} valueLabelDisplay="auto" />
-      </Grid>
-      <Grid item xs={12}>
-        <Grid container spacing={2}>
-          {experience.slice(values[0], values[1] + 1).map((event: Event) => (
-            <Grid item xs={12} key={event.name} className={classes.fade}>
-              <Paper elevation={0} className={classes.event}>
-                <Typography variant="h6">{event.name}</Typography>
-              </Paper>
-            </Grid>
-          ))}
+        <Grid container spacing={2} justify="center">
+          {experience
+            .slice(values[0], values[1] + 1)
+            .reverse()
+            .map((event: Event) => (
+              <Grid item xs={12} md={6} key={event.name} className={classes.fade}>
+                <DataPaper title={event.name} subtitle={formatDate(event.date)} info={event.description} />
+              </Grid>
+            ))}
         </Grid>
       </Grid>
     </>

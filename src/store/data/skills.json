@@ -3,7 +3,7 @@
     "name": "FrontEnd",
     "level": "Expert",
     "value": 50.0,
-    "description": "Extremely skilled and confident use of React with Functional & Hook principals, Typescript, Material UI, Redux Sagas and Responsive Designs. Use the GitHub icon in the top bar to check out this web app’s code as an example and try the app on a mobile!"
+    "description": "Extremely skilled and confident use of React with Functional & Hook principals, Typescript, Material UI, ChartJS Redux Sagas and Responsive Designs. Use the GitHub icon in the top bar to check out this web app’s code as an example and try the app on a mobile!"
   },
   {
     "name": "BackEnd",

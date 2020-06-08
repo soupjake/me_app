@@ -38,8 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
     expansionSummary: {
-      fontWeight: 700,
-      margin: 0
+      fontWeight: "bold"
     },
     expansionPanel: {
       borderRadius: 4,
@@ -48,6 +47,14 @@ const useStyles = makeStyles((theme: Theme) =>
     linkButton: {
       marginTop: theme.spacing(2),
       marginBottom: -theme.spacing(1)
+    },
+    avatar: {
+      height: 200,
+      width: 200,
+      margin: "auto"
+    },
+    list: {
+      height: "100%"
     }
   })
 );
@@ -96,7 +103,7 @@ export default function Home() {
             <Typography variant={getSubheaderSize(smAndDown)}>What I Do</Typography>
             <ExpansionPanel elevation={0} defaultExpanded={true} className={classes.expansionPanel}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography variant="body1" className={classesBase.boldText}>
+                <Typography variant="body1" className={classes.expansionSummary}>
                   Skills
                 </Typography>
               </ExpansionPanelSummary>
@@ -121,7 +128,7 @@ export default function Home() {
             </ExpansionPanel>
             <ExpansionPanel elevation={0} className={classes.expansionPanel}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography variant="body1" className={classesBase.boldText}>
+                <Typography variant="body1" className={classes.expansionSummary}>
                   Experience
                 </Typography>
               </ExpansionPanelSummary>
@@ -154,7 +161,7 @@ export default function Home() {
           </Grid>
           <Grid container item xs={12} md={6} alignItems="center" spacing={2}>
             <Grid item xs={12}>
-              <Avatar className={classesBase.avatar} src={avatar} alt="avatar" />
+              <Avatar className={classes.avatar} src={avatar} alt="avatar" />
             </Grid>
             <Grid item xs={12}>
               <Typography variant="h6" align="center">
@@ -168,7 +175,7 @@ export default function Home() {
             </Grid>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Grid container justify="center" alignItems="center" className={classesBase.fillHeight}>
+            <Grid container justify="center" alignItems="center" className={classes.list}>
               <List>
                 <ListItem>
                   <ListItemIcon>

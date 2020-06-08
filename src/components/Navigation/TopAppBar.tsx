@@ -13,7 +13,6 @@ import Brightess7Icon from "@material-ui/icons/Brightness7";
 import Brightess3Icon from "@material-ui/icons/Brightness3";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import LinkButton from "./LinkButton";
-import useStylesBase from "../../styles/styles-base";
 import { Typography } from "@material-ui/core";
 import { openUrl } from "../../helpers/text-helper";
 import Media from "../../models/media";
@@ -38,7 +37,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function TopAppBar() {
   const classes = useStyles();
-  const classesBase = useStylesBase();
   const dark: boolean = useSelector((state: AppState) => state.theme.dark);
   const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(undefined);
   const dispatch = useDispatch();
@@ -105,16 +103,16 @@ export default function TopAppBar() {
         <Grid container alignItems="center">
           {name}
           <Grid item xs>
-            <Grid container justify="center" wrap="nowrap">
-              <LinkButton className={classesBase.button} to="/">
-                Home
-              </LinkButton>
-              <LinkButton className={classesBase.button} to="/skills">
-                Skills
-              </LinkButton>
-              <LinkButton className={classesBase.button} to="/experience">
-                Experience
-              </LinkButton>
+            <Grid container justify="center" wrap="nowrap" spacing={1}>
+              <Grid item>
+                <LinkButton to="/">Home</LinkButton>
+              </Grid>
+              <Grid item>
+                <LinkButton to="/skills">Skills</LinkButton>
+              </Grid>
+              <Grid item>
+                <LinkButton to="/experience">Experience</LinkButton>
+              </Grid>
             </Grid>
           </Grid>
           <Grid item xs>

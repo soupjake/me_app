@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import skillsImage from "../../assets/skills.jpg";
-import Paper from "@material-ui/core/Paper";
 import Skeleton from "@material-ui/lab/Skeleton";
+import DataPaper from "../Layout/DataPaper";
 import LinkButton from "../Navigation/LinkButton";
 import Skill from "../../models/skill";
 import useStylesBase from "../../styles/styles-base";
@@ -16,20 +16,14 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import PieChart from "../Charts/PieChart";
 import clsx from "clsx";
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     skill: {
-      padding: theme.spacing(2),
       opacity: 1.0,
       transition: theme.transitions.create("opacity")
     },
     nonHover: {
       opacity: 0.5
-    },
-    level: {
-      fontWeight: "normal",
-      marginBottom: theme.spacing(2)
     }
   })
 );
@@ -91,15 +85,12 @@ export default function Skills() {
         <Grid container spacing={2}>
           {skills.map((skill: Skill) => (
             <Grid item xs={12} key={skill.name}>
-              <Paper elevation={0} className={clsx(classes.skill, hover && hover !== skill.name && classes.nonHover)}>
-                <Grid container justify="space-between">
-                  <Typography variant="h6">{skill.name}</Typography>
-                  <Typography variant="h6" className={classes.level} color="primary">
-                    {skill.level}
-                  </Typography>
-                </Grid>
-                <Typography variant="body1">{skill.description}</Typography>
-              </Paper>
+              <DataPaper
+                title={skill.name}
+                subtitle={skill.level}
+                info={skill.description}
+                className={clsx(classes.skill, hover && hover !== skill.name && classes.nonHover)}
+              />
             </Grid>
           ))}
         </Grid>
