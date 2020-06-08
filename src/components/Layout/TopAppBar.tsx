@@ -66,7 +66,7 @@ export default function TopAppBar() {
   const name = (
     <Grid item xs>
       <Typography variant="h6" color="primary">
-        Jacob Gough
+        Jake Gough
       </Typography>
     </Grid>
   );
