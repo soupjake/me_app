@@ -3,18 +3,18 @@
     "name": "FrontEnd",
     "level": "Expert",
     "value": 50.0,
-    "description": "Extremely skilled and confident use of React with Functional & Hook principals, Typescript, Material UI, ChartJS Redux Sagas and Responsive Designs. Use the GitHub icon in the top bar to check out this web app’s code as an example and try the app on a mobile!"
+    "description": "Extremely skilled and confident use of React with functional & hook principals. I have experience with class based components but I find functional components far more effective. I prefer to write in TypeScript in order to combine the benefits of programming in JavaScript and a static typed language such as preventing errors before compilation.\n\n I utilise Material UI to conduct a consistent and 'design with meaning' approach to UX but also with the ability to tweak Material Design principles so that I can express my creativity within my applications. Material UI also allows me to create responsive designs which use differing screen sizes effectively with ease. ChartJS is also applied throughout my applications so that I can present data with the right balance of visually appealing and practical data visualisation. \n\n Redux Sagas with Redux Toolkit are my preferred choice of asynchronous state management due to its impressive ability to handle unwanted side effects, ease of application and reduced ‘boilerplate’ compared to regular Redux. In terms of testing, experience with Cypress although personally prefer Jest for testing due to its decreased imprint and ease of use on an application. Make sure to use the GitHub icon in the top bar to check out this web app’s code if you would like an example of my programming. \n\n Also note that I also have experience with Angular, Vue, WPF, Flutter and Android Native."
   },
   {
     "name": "BackEnd",
     "level": "Advanced",
     "value": 35.0,
-    "description": "Strong NodeJS Typescript skills for creating simple and efficient Microservices along with efficient C# background for developing more complex, object orientated APIs."
+    "description": "NodeJS with TypeScript is my preferred design approach towards creating simpe, fast and efficient microservices connected to a more non-relational database such as DynamoDB or Mongo. \n\n Although I have experience of using DynamoDB as a ‘kind of’ relational database, I prefer to use a relational database service, such as RDS or SQL, connected to a C# .Net Core Web API for dealing with more complex data due to C#’s amazing OOP principals ease of TTD with Moq and xUnit."
   },
   {
     "name": "DevOps",
     "level": "Basic",
     "value": 15.0,
-    "description": "Fundamental AWS understanding of DynamoDB, S3, Cloudfront and Serverless Lambda deployment. Also use of Netflify for web app hosting."
+    "description": "I have a fundamental understanding of various AWS services such as DynamoDB, S3, ES2, Cloudfront and Serverless Lambda deployment. Not only do I find Serverless easy to develop for but it has very impressive scalability, low footprint and low cost.\n\n However, the lack of “cold start ups” and high response times of an ES2 web service cannot be ignored when speed is required. I also have use of Netflify for simple web app hosting with this web app being hosted through Netlify."
   }
 ]

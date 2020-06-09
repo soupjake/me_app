@@ -12,6 +12,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import PieChart from "../Charts/PieChart";
 import clsx from "clsx";
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     skill: {
@@ -37,20 +38,6 @@ export default function Skills() {
     }
   }, [skills.length, error, dispatch]);
 
-  const pieLoading = (
-    <Grid item xs={12} md={6}>
-      <Grid container justify="center">
-        <Skeleton variant="circle" height={smAndDown ? 300 : 400} width={smAndDown ? 300 : 400} />
-      </Grid>
-    </Grid>
-  );
-
-  const pieChart = (
-    <Grid item xs={12} md={6}>
-      <PieChart skills={skills} handleOnHover={setHover} smAndDown={smAndDown} />
-    </Grid>
-  );
-
   return (
     <>
       <Grid item xs={12}>
@@ -58,7 +45,11 @@ export default function Skills() {
       </Grid>
       {loading ? (
         <>
-          {smAndDown && pieLoading}
+          <Grid item xs={12} md={6}>
+            <Grid container justify="center">
+              <Skeleton variant="circle" height={smAndDown ? 300 : 400} width={smAndDown ? 300 : 400} />
+            </Grid>
+          </Grid>
           <Grid item xs={12} md={6}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -72,31 +63,27 @@ export default function Skills() {
               </Grid>
             </Grid>
           </Grid>
-          {!smAndDown && pieLoading}
         </>
       ) : error || !skills.length ? (
         <Grid item xs={12}>
           <Typography variant="h6">No skills to show.</Typography>
         </Grid>
       ) : (
-        <>
-          {smAndDown && pieChart}
+        <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
-            <Grid container spacing={2}>
-              {skills.map((skill: Skill) => (
-                <Grid item xs={12} key={skill.name}>
-                  <DataPaper
-                    title={skill.name}
-                    subtitle={skill.level}
-                    info={skill.description}
-                    className={clsx(classes.skill, hover && hover !== skill.name && classes.nonHover)}
-                  />
-                </Grid>
-              ))}
-            </Grid>
+            <PieChart skills={skills} handleOnHover={setHover} smAndDown={smAndDown} />
           </Grid>
-          {!smAndDown && pieChart}
-        </>
+          {skills.map((skill: Skill) => (
+            <Grid item xs={12} md={6} key={skill.name}>
+              <DataPaper
+                title={skill.name}
+                subtitle={skill.level}
+                info={skill.description}
+                className={clsx(classes.skill, hover && hover !== skill.name && classes.nonHover)}
+              />
+            </Grid>
+          ))}
+        </Grid>
       )}
     </>
   );
