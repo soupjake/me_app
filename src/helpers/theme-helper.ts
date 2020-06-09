@@ -2,8 +2,7 @@ import { Theme, createMuiTheme } from "@material-ui/core/styles";
 
 export function getThemeBase(secondary: string): Theme {
   const header = {
-    fontWeight: "bold" as "bold",
-    marginTop: 24
+    fontWeight: "bold" as "bold"
   };
 
   return createMuiTheme({
