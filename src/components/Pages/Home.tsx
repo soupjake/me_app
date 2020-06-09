@@ -80,20 +80,30 @@ export default function Home() {
         <Container maxWidth="lg">
           <Grid container justify="center" spacing={2}>
             <Grid item xs={12}>
-              <Typography variant={getSubheaderSize(smAndDown)}>Who I Am</Typography>
+              <Typography variant={getSubheaderSize(smAndDown)} align="center">
+                Who I Am
+              </Typography>
             </Grid>
-            <Grid item xs={12} md={6}>
-              {whoImg}
-            </Grid>
+            {smAndDown && (
+              <Grid item xs={12}>
+                {whoImg}
+              </Grid>
+            )}
             <Grid item xs={12} md={6}>
               <Typography variant="body1">
                 I am a brilliantly efficient, resilient, super fun full stack software with a keen eye and passion in UX
-                design. Spends free time building and repairing computers, pumping iron at the gym, playing games and
-                going on country walks with the family dog.
+                design. I spend my free time building and repairing computers, pumping iron at the gym, playing games
+                and going on country walks with the family dog.
               </Typography>
             </Grid>
+            {!smAndDown && (
+              <Grid item md={6}>
+                {whoImg}
+              </Grid>
+            )}
             <Skills />
             <Experience />
+            <Grid item xs={12} />
             <Grid container item xs={12} md={6} alignItems="center" spacing={2}>
               <Grid item xs={12}>
                 <Avatar className={classes.avatar} src={avatar} alt="avatar" />

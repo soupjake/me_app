@@ -68,7 +68,7 @@ export function tooltipStyle(theme: Theme, displayColors: boolean) {
     titleFontSize: 0,
     titleMarginBottom: 2,
     bodyFontSize: 16,
-    bodyFontColor: theme.palette.primary.main,
+    bodyFontColor: theme.palette.text.primary,
     bodyFontStyle: "bold",
     intersect: false
   };

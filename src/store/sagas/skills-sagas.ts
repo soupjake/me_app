@@ -3,7 +3,7 @@ import { getSkills } from "../../services/skills-service";
 import { getSkillsRequest, getSkillsSuccess, getSkillsFailure } from "../reducers/skills-reducers";
 import Skill from "../../models/skill";
 
-function* getSkillsSaga() {
+export function* getSkillsSaga() {
   try {
     const skills: Skill[] = yield call(getSkills);
     yield put(getSkillsSuccess(skills));
