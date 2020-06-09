@@ -3,7 +3,7 @@ import { getEvents } from "../../services/experience-service";
 import { getExperienceRequest, getExperienceSuccess, getExperienceFailure } from "../reducers/experience-reducers";
 import Event from "../../models/event";
 
-function* getExperienceSaga() {
+export function* getExperienceSaga() {
   try {
     const events: Event[] = yield call(getEvents);
     yield put(getExperienceSuccess(events));

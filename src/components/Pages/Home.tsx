@@ -80,7 +80,9 @@ export default function Home() {
         <Container maxWidth="lg">
           <Grid container justify="center" spacing={2}>
             <Grid item xs={12}>
-              <Typography variant={getSubheaderSize(smAndDown)}>Who I Am</Typography>
+              <Typography variant={getSubheaderSize(smAndDown)} align="center">
+                Who I Am
+              </Typography>
             </Grid>
             {smAndDown && (
               <Grid item xs={12}>
@@ -101,6 +103,7 @@ export default function Home() {
             )}
             <Skills />
             <Experience />
+            <Grid item xs={12} />
             <Grid container item xs={12} md={6} alignItems="center" spacing={2}>
               <Grid item xs={12}>
                 <Avatar className={classes.avatar} src={avatar} alt="avatar" />

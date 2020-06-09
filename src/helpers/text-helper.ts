@@ -15,7 +15,7 @@ export function toSentenceCase(input: string): string {
 }
 
 export function getHeaderSize(smAndDown: boolean): Variant {
-  return smAndDown ? "h4" : "h2";
+  return smAndDown ? "h3" : "h2";
 }
 
 export function getSubheaderSize(smAndDown: boolean): Variant {

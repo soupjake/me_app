@@ -2,7 +2,8 @@ import { Theme, createMuiTheme } from "@material-ui/core/styles";
 
 export function getThemeBase(secondary: string): Theme {
   const header = {
-    fontWeight: "bold" as "bold"
+    fontWeight: "bold" as "bold",
+    marginTop: 24
   };
 
   return createMuiTheme({
@@ -10,8 +11,8 @@ export function getThemeBase(secondary: string): Theme {
       fontFamily: "Public Sans, sans-serif",
       h2: header,
       h4: header,
-      h5: { ...header, textAlign: "center" },
-      h6: header,
+      h5: header,
+      h6: { ...header, marginTop: 0 },
       allVariants: {
         lineHeight: 1.5,
         letterSpacing: "0.0075em"

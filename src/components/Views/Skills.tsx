@@ -41,7 +41,9 @@ export default function Skills() {
   return (
     <>
       <Grid item xs={12}>
-        <Typography variant={getSubheaderSize(smAndDown)}>My Skills</Typography>
+        <Typography variant={getSubheaderSize(smAndDown)} align="center">
+          My Skills
+        </Typography>
       </Grid>
       {loading ? (
         <>

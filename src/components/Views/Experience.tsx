@@ -54,7 +54,9 @@ export default function Experience() {
   return (
     <>
       <Grid item xs={12}>
-        <Typography variant={getSubheaderSize(smAndDown)}>My Experience</Typography>
+        <Typography variant={getSubheaderSize(smAndDown)} align="center">
+          My Experience
+        </Typography>
       </Grid>
       {loading ? (
         <Grid item xs={12}>
