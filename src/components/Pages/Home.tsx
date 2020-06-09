@@ -49,10 +49,15 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
     background: {
+      marginBottom: theme.spacing(2),
       background:
         theme.palette.type === "dark"
           ? `linear-gradient(${theme.palette.background.default}, #050406)`
           : `linear-gradient(${theme.palette.background.default}, #E3F2FE)`
+    },
+    email: {
+      color: theme.palette.primary.main,
+      textDecoration: "none"
     },
     avatar: {
       height: 200,
@@ -91,9 +96,19 @@ export default function Home() {
             )}
             <Grid item xs={12} md={6}>
               <Typography variant="body1">
-                I am a brilliantly efficient, resilient, super fun full stack software with a keen eye and passion in UX
-                design. I spend my free time building and repairing computers, pumping iron at the gym, playing games
-                and going on country walks with the family dog.
+                My name is Jake Gough and I am an Awesome Software Developer from Cardiff. I am a brilliantly efficient,
+                resilient, super fun full stack software with a keen eye and passion in UX design. I spend my free time
+                building and repairing computers, pumping iron at the gym, playing games and going on country walks with
+                the family dog. <br />
+                <br />I originally studied Psychology up to Masters as I found the subject fascinating. However, after
+                some years of trying to compete for a research based job in a massively popular and underfunded field, I
+                began to teach myself programming as a hobby. After gaining a taste in coding, I took my savings and
+                enrolled onto a Masters in Computing to begin my awesome career in software development. Please scroll
+                down to read about my varying areas of programming skills and experience over the years. If you would
+                like to contact me, please either use the LinkedIn icon in the Top Bar or email me at{" "}
+                <a className={classes.email} href="mailto:super.jake@hotmail.co.uk">
+                  super.jake@hotmail.co.uk.
+                </a>
               </Typography>
             </Grid>
             {!smAndDown && (
